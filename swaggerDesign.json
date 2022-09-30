@@ -62,14 +62,14 @@
         "/vhs/{videoName}": {
             "get": {
                 "tags": ["vhs"],
-                "summary": "Get vhs by id",
+                "summary": "Get vhs by name",
                 "operationId": "getSingleNAME",
                 "produces": ["application/json"],
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "videoName",
                         "in": "path",
-                        "description": "The id that needs to be fetched.",
+                        "description": "The name that needs to be fetched.",
                         "required": true,
                         "type": "string"
                     }
@@ -79,10 +79,10 @@
                         "description": "successful operation"
                     },
                     "400": {
-                        "description": "Invalid Id supplied"
+                        "description": "Invalid Name supplied"
                     },
                     "404": {
-                        "description": "Id not found"
+                        "description": "Name not found"
                     }
                 }
             }
@@ -154,7 +154,7 @@
                 "produces": ["application/json"],
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "title",
                         "in": "path",
                         "description": "The name that needs to be removed.",
                         "required": true,
