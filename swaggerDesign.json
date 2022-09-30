@@ -154,7 +154,7 @@
                 "produces": ["application/json"],
                 "parameters": [
                     {
-                        "name": "title",
+                        "name": "videoName",
                         "in": "path",
                         "description": "The name that needs to be removed.",
                         "required": true,
@@ -280,7 +280,7 @@
                     "produces": ["application/json"],
                     "parameters": [
                         {
-                            "name": "id",
+                            "name": "title",
                             "in": "path",
                             "description": "The id that needs to be fetched.",
                             "required": true,
@@ -340,7 +340,7 @@
                 "produces": ["application/json"],
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "title",
                         "in": "path",
                         "description": "The title that needs to be removed.",
                         "required": true,
