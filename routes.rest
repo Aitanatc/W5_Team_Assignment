@@ -2,7 +2,7 @@ GET http://localhost:8080/vhs
 
 ###
 
-GET http://localhost:8080/vhs/6336333581bded7a248b563b
+GET http://localhost:8080/vhs/VegieTales
 
 ###
 POST http://localhost:8080/vhs HTTP/1.1
@@ -20,7 +20,7 @@ content-type: application/json
 
 ###
 
-PUT http://localhost:8080/vhs/633638049f52a1525f91be03 HTTP/1.1
+PUT http://localhost:8080/vhs/Home%20Alone HTTP/1.1
 content-type: application/json
 
 {
@@ -35,7 +35,7 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:8080/vhs/633638049f52a1525f91be03
+DELETE http://localhost:8080/vhs/Home%20Alone
 
 ###
 
@@ -43,39 +43,39 @@ GET http://localhost:8080/books
 
 ###
 
-GET http://localhost:8080/books/63363b9681bded7a248b5642
+GET http://localhost:8080/books/Fairy%20tales
 
 ###
 POST http://localhost:8080/books HTTP/1.1
 content-type: application/json
 
 {
-  "author": "Jane Austin",
-  "country": "England",
-  "imageLink": "images/pride_prejudice.jpg",
-  "language": "English",
-  "link": "https://en.wikipedia.org/wiki/Pride_Prejudice\n",
-  "pages": 1024,
-  "title": "Pride Prejudice",
-  "year": 1658
+  "author": "Jane Pose",
+  "country": "Atlantis",
+  "imageLink": "images/PrideandFear.jpg",
+  "language": "Greek",
+  "link": "https://en.wikipedia.org/wiki/PrideandFear\n",
+  "pages": 1300,
+  "title": "PrideandFear",
+  "year": 100
 }
 
 ###
 
-PUT http://localhost:8080/books/63364029db77d2e8353e982a HTTP/1.1
+PUT http://localhost:8080/books/PrideandFear HTTP/1.1
 content-type: application/json
 
 {
-  "author": "Jane Austin",
-  "country": "UK",
-  "imageLink": "images/pride_prejudice.jpg",
-  "language": "English",
-  "link": "https://en.wikipedia.org/wiki/Pride_Prejudice\n",
-  "pages": 1500,
-  "title": "Pride Prejudice",
-  "year": 1258
+  "author": "Jane Pose",
+  "country": "Atlantis",
+  "imageLink": "images/pride_and_fear.jpg",
+  "language": "Spanish",
+  "link": "https://en.wikipedia.org/wiki/PrideandFear\n",
+  "pages": 1200,
+  "title": "PrideandFear",
+  "year": 100
 }
 
 ###
 
-DELETE http://localhost:8080/books/6336404cdb77d2e8353e982b
+DELETE http://localhost:8080/books/PrideandFear

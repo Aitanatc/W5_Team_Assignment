@@ -10,17 +10,9 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-  const bookId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db().collection('BOOKS').find({ _id: bookId });
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
-};
-
-const getSingleNAME = async (req, res) => {
-  const bookNAME = new ObjectId(req.params.title);
-  const result = await mongodb.getDb().db().collection('BOOKS').find({ _id: bookNAME });
+  const title = req.params.id;
+  const query = { title: title};
+  const result = await mongodb.getDb().db().collection('BOOKS').find(query);
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
@@ -47,7 +39,8 @@ const createBOOK = async (req, res) => {
 };
 
 const updateBOOK = async (req, res) => {
-  const bookId = new ObjectId(req.params.id);
+  const title = req.params.id;
+  const query = { title: title};
   const book = {
     author: req.body.author,
     country: req.body.country,
@@ -62,8 +55,7 @@ const updateBOOK = async (req, res) => {
     .getDb()
     .db()
     .collection('BOOKS')
-    .replaceOne({ _id: bookId }, book);
-  console.log(response);
+    .replaceOne(query, book);
   if (response.modifiedCount > 0) {
     res.status(204).send();
   } else {
@@ -71,20 +63,10 @@ const updateBOOK = async (req, res) => {
   }
 };
 
-const deleteBOOKNAME = async (req, res) => {
-  const bookTitle = new ObjectId(req.params.title);
-  const response = await mongodb.getDb().db().collection('BOOKS').remove({ _id: bookTitle }, true);
-  console.log(response);
-  if (response.deletedCount > 0) {
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while deleting the book.');
-  }
-};
-
 const deleteBOOK = async (req, res) => {
-  const bookId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db().collection('BOOKS').remove({ _id: bookId }, true);
+  const title = req.params.id;
+  const query = { title: title};
+  const response = await mongodb.getDb().db().collection('BOOKS').remove(query, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
@@ -92,14 +74,11 @@ const deleteBOOK = async (req, res) => {
     res.status(500).json(response.error || 'Some error occurred while deleting the book.');
   }
 };
-
 
 module.exports = {
   getAll,
   getSingle,
-  getSingleNAME,
   createBOOK,
   updateBOOK,
-  deleteBOOKNAME, 
   deleteBOOK
 };

@@ -1,5 +1,4 @@
 const mongodb = require('../db/connect');
-const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
   const result = await mongodb.getDb().db().collection('VHS').find();
@@ -10,21 +9,13 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-  const vhsId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db().collection('VHS').find({ _id: vhsId });
+  const videoName = req.params.id;
+  const query = { videoName: videoName};
+  const result = await mongodb.getDb().db().collection('VHS').find(query);
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
-  });
-};
-
-const getSingleNAME = async (req, res) => {
-  const vhsName = new ObjectId(req.params.videoName);
-  const result = await mongodb.getDb().db().collection('VHS').find({ _id: vhsName });
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
+  }); 
 };
 
 const createVHS = async (req, res) => {
@@ -46,7 +37,8 @@ const createVHS = async (req, res) => {
 };
 
 const updateVHS = async (req, res) => {
-  const vhsId = new ObjectId(req.params.id);
+  const videoName = req.params.id;
+  const query = { videoName: videoName};
   const vhs = {
     videoName: req.body.videoName,
     discription: req.body.discription,
@@ -60,8 +52,7 @@ const updateVHS = async (req, res) => {
     .getDb()
     .db()
     .collection('VHS')
-    .replaceOne({ _id: vhsId }, vhs);
-  console.log(response);
+    .replaceOne(query, vhs);
   if (response.modifiedCount > 0) {
     res.status(204).send();
   } else {
@@ -69,19 +60,10 @@ const updateVHS = async (req, res) => {
   }
 };
 
-const deleteVHSNAME = async (req, res) => {
-  const vhsName = new ObjectId(req.params.videoName);
-  const response = await mongodb.getDb().db().collection('VHS').remove({ _id: vhsName }, true);
-  console.log(response);
-  if (response.deletedCount > 0) {
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while deleting the vhs.');
-  }
-};
 const deleteVHS = async (req, res) => {
-  const vhsId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db().collection('VHS').remove({ _id: vhsId }, true);
+  const videoName = req.params.id;
+  const query = { videoName: videoName};
+  const response = await mongodb.getDb().db().collection('VHS').remove(query, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
@@ -93,9 +75,7 @@ const deleteVHS = async (req, res) => {
 module.exports = {
   getAll,
   getSingle,
-  getSingleNAME,
   createVHS,
   updateVHS,
-  deleteVHSNAME,
   deleteVHS
 };

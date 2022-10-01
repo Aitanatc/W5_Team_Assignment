@@ -63,41 +63,13 @@
             "get": {
                 "tags": ["vhs"],
                 "summary": "Get vhs by name",
-                "operationId": "getSingleNAME",
+                "operationId": "getSingle",
                 "produces": ["application/json"],
                 "parameters": [
                     {
                         "name": "videoName",
                         "in": "path",
-                        "description": "The name that needs to be fetched.",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "400": {
-                        "description": "Invalid Name supplied"
-                    },
-                    "404": {
-                        "description": "Name not found"
-                    }
-                }
-            }
-        },
-        "/vhs/{id}": {
-            "get": {
-                "tags": ["vhs"],
-                "summary": "Get vhs by id",
-                "operationId": "getSingle",
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "The id that needs to be fetched.",
+                        "description": "The title that needs to be fetched.",
                         "required": true,
                         "type": "string"
                     }
@@ -122,9 +94,9 @@
                 "produces": ["application/json"],
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "videoName",
                         "in": "path",
-                        "description": "The id that needs to be updated.",
+                        "description": "The video that needs to be updated.",
                         "required": true,
                         "type": "string"
                     },
@@ -150,39 +122,13 @@
             "delete": {
                 "tags": ["vhs"],
                 "summary": "Remove vhs by name",
-                "operationId": "deleteVHSNAME",
+                "operationId": "deleteVHS",
                 "produces": ["application/json"],
                 "parameters": [
                     {
                         "name": "videoName",
                         "in": "path",
                         "description": "The name that needs to be removed.",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "400": {
-                        "description": "Invalid Id supplied"
-                    },
-                    "404": {
-                        "description": "Id not found"
-                    }
-                }
-            },
-            "delete": {
-                "tags": ["vhs"],
-                "summary": "Remove vhs by id",
-                "operationId": "deleteVHS",
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "The id that needs to be removed.",
                         "required": true,
                         "type": "string"
                     }
@@ -213,10 +159,10 @@
                             "type": "Array"
                         }
                     },
-                "404": {
-                    "description": "Error occurred"
+                    "404": {
+                        "description": "Error occurred"
+                    }
                 }
-              }
             },
             "post": {
                 "tags": ["books"],
@@ -245,17 +191,17 @@
                 }
             }
         },
-        "/books/{id}": {
+        "/books/{title}": {
             "get": {
                 "tags": ["books"],
-                "summary": "Get book by id",
+                "summary": "Get book by titile",
                 "operationId": "getSingle",
                 "produces": ["application/json"],
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "title",
                         "in": "path",
-                        "description": "The id that needs to be fetched.",
+                        "description": "The title that needs to be fetched.",
                         "required": true,
                         "type": "string"
                     }
@@ -271,34 +217,6 @@
                         "description": "Id not found"
                     }
                 }
-            },
-            "/books/{title}": {
-                "get": {
-                    "tags": ["books"],
-                    "summary": "Get book by titile",
-                    "operationId": "getSingleNAME",
-                    "produces": ["application/json"],
-                    "parameters": [
-                        {
-                            "name": "title",
-                            "in": "path",
-                            "description": "The id that needs to be fetched.",
-                            "required": true,
-                            "type": "string"
-                        }
-                    ],
-                    "responses": {
-                        "200": {
-                            "description": "successful operation"
-                        },
-                        "400": {
-                            "description": "Invalid Id supplied"
-                        },
-                        "404": {
-                            "description": "Id not found"
-                        }
-                    }
-                }
             },    
             "put": {
                 "tags": ["books"],
@@ -308,9 +226,9 @@
                 "produces": ["application/json"],
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "title",
                         "in": "path",
-                        "description": "The id that needs to be updated.",
+                        "description": "The book that needs to be updated.",
                         "required": true,
                         "type": "string"
                     },
@@ -336,7 +254,7 @@
             "delete": {
                 "tags": ["books"],
                 "summary": "Remove book by title",
-                "operationId": "deleteBOOKNAME",
+                "operationId": "deleteBOOK",
                 "produces": ["application/json"],
                 "parameters": [
                     {
@@ -356,32 +274,6 @@
                     },
                     "404": {
                         "description": "Name not found"
-                    }
-                }
-            },
-            "delete": {
-                "tags": ["books"],
-                "summary": "Remove book by id",
-                "operationId": "deleteBOOK",
-                "produces": ["application/json"],
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "The id that needs to be removed.",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "400": {
-                        "description": "Invalid Id supplied"
-                    },
-                    "404": {
-                        "description": "Id not found"
                     }
                 }
             }
@@ -445,7 +337,7 @@
                     "type": "string"
                 },
                 "link":{
-                    "type": "number"
+                    "type": "string"
                 },
                 "pages":{
                     "type": "number"
