@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-
+const { requiresAuth } = require('express-openid-connect');
 const bookController = require('../controllers/books');
 
-router.get('/', bookController.getAll);
+router.get('/', requiresAuth(), bookController.getAll);
 
-router.get('/:id', bookController.getSingle);
+router.get('/:id', requiresAuth(), bookController.getSingle);
 
-router.post('/', bookController.createBOOK);
+router.post('/', requiresAuth(), bookController.createBOOK);
 
-router.put('/:id', bookController.updateBOOK);
+router.put('/:id', requiresAuth(), bookController.updateBOOK);
 
-router.delete('/:id', bookController.deleteBOOK);
+router.delete('/:id', requiresAuth(), bookController.deleteBOOK);
 
 module.exports = router;

@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-
+const { requiresAuth } = require('express-openid-connect');
 const vhsController = require('../controllers/vhs');
 
-router.get('/', vhsController.getAll);
+router.get('/', requiresAuth(), vhsController.getAll);
 
-router.get('/:id', vhsController.getSingle);
+router.get('/:id', requiresAuth(), vhsController.getSingle);
 
-router.post('/', vhsController.createVHS);
+router.post('/', requiresAuth(), vhsController.createVHS);
 
-router.put('/:id', vhsController.updateVHS);
+router.put('/:id', requiresAuth(), vhsController.updateVHS);
 
-router.delete('/:id', vhsController.deleteVHS);
+router.delete('/:id', requiresAuth(), vhsController.deleteVHS);
 
 module.exports = router;
