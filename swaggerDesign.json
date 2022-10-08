@@ -22,10 +22,7 @@
                 "produces": ["application/json"],
                 "responses": {
                     "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "Array"
-                        }
+                        "description": "successful operation"
                     },
                     "404": {
                         "description": "Error occurred"
@@ -154,10 +151,7 @@
                 "produces": ["application/json"],
                 "responses": {
                     "200": {
-                        "description": "successful operation",
-                        "schema": {
-                            "type": "Array"
-                        }
+                        "description": "successful operation"
                     },
                     "404": {
                         "description": "Error occurred"
