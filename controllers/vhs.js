@@ -2,20 +2,28 @@ const mongodb = require('../db/connect');
 
 const getAll = async (req, res) => {
   const result = await mongodb.getDb().db().collection('VHS').find();
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists);
-  });
+  if (result != null) {
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists);
+    });
+  } else{
+    res.status(500).json(result.error || 'Some error occurred while getting the vhs library.');
+  }
 };
 
 const getSingle = async (req, res) => {
   const videoName = req.params.id;
   const query = { videoName: videoName};
   const result = await mongodb.getDb().db().collection('VHS').find(query);
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  }); 
+  if (result != null) {
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists[0]);
+    });
+  } else{
+    res.status(500).json(result.error || 'Some error occurred while getting the vhs.');
+  }
 };
 
 const createVHS = async (req, res) => {

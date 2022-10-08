@@ -3,20 +3,28 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
   const result = await mongodb.getDb().db().collection('BOOKS').find();
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists);
-  });
+  if (result != null) {
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists);
+    });
+  } else{
+    res.status(500).json(result.error || 'Some error occurred while getting the vhs library.');
+  }
 };
 
 const getSingle = async (req, res) => {
   const title = req.params.id;
   const query = { title: title};
   const result = await mongodb.getDb().db().collection('BOOKS').find(query);
-  result.toArray().then((lists) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(lists[0]);
-  });
+  if (result != null) {
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists[0]);
+    });
+  } else{
+    res.status(500).json(result.error || 'Some error occurred while getting the vhs library.');
+  }
 };
 
 const createBOOK = async (req, res) => {
