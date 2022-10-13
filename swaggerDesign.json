@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is an api server for a portfolio builder website.\n",
+        "discription": "This is an api server for a portfolio builder website.\n",
         "version": "1.0.0",
         "title": "Portfolio Builder",
         "contact": {
@@ -22,24 +22,24 @@
                 "produces": ["application/json"],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "discription": "successful operation"
                     },
                     "404": {
-                        "description": "Error occurred"
+                        "discription": "Error occurred"
                     }
                 }
             },
             "post": {
                 "tags": ["task"],
                 "summary": "Create new task",
-                "description": "This is for when a task is created.",
+                "discription": "This is for when a task is created.",
                 "operationId": "createTASK",
                 "produces": ["application/json"],
                 "parameters": [
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "Created task object",
+                        "discription": "Created task object",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/task"
@@ -48,10 +48,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "successfully created task"
+                        "discription": "successfully created task"
                     },
                     "400": {
-                        "description": "Invalid"
+                        "discription": "Invalid"
                     }
                 }
             }
@@ -66,41 +66,41 @@
                     {
                         "name": "taskName",
                         "in": "path",
-                        "description": "The title that needs to be fetched.",
+                        "discription": "The title that needs to be fetched.",
                         "required": true,
                         "type": "string"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "discription": "successful operation"
                     },
                     "400": {
-                        "description": "Invalid Id supplied"
+                        "discription": "Invalid Id supplied"
                     },
                     "404": {
-                        "description": "Id not found"
+                        "discription": "Id not found"
                     }
                 }
             },
             "put": {
                 "tags": ["task"],
                 "summary": "Update task",
-                "description": "This is for when a task is updated.",
+                "discription": "This is for when a task is updated.",
                 "operationId": "updateTASK",
                 "produces": ["application/json"],
                 "parameters": [
                     {
                         "name": "taskName",
                         "in": "path",
-                        "description": "The video that needs to be updated.",
+                        "discription": "The video that needs to be updated.",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "Updated task object",
+                        "discription": "Updated task object",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/task"
@@ -109,10 +109,10 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "successfully updated task"
+                        "discription": "successfully updated task"
                     },
                     "400": {
-                        "description": "Invalid"
+                        "discription": "Invalid"
                     }
                 }
             },
@@ -125,20 +125,20 @@
                     {
                         "name": "taskName",
                         "in": "path",
-                        "description": "The name that needs to be removed.",
+                        "discription": "The name that needs to be removed.",
                         "required": true,
                         "type": "string"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "discription": "successful operation"
                     },
                     "400": {
-                        "description": "Invalid Id supplied"
+                        "discription": "Invalid Id supplied"
                     },
                     "404": {
-                        "description": "Id not found"
+                        "discription": "Id not found"
                     }
                 }
             }
@@ -148,13 +148,13 @@
         "task": {
             "type": "object",
             "required": ["taskName",
-                "description",
+                "discription",
                 "reward"],
             "properties": {
                 "taskName": {
                     "type": "string"
                 },
-                "description":{
+                "discription":{
                     "type": "string"
                 },
                 "reward":{
