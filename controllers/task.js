@@ -8,7 +8,7 @@ const getAll = async (req, res) => {
       res.status(200).json(lists);
     });
   } else{
-    res.status(500).json(result.error || 'Some error occurred while getting the vhs library.');
+    res.status(500).json(result.error || 'Some error occurred while getting the task library.');
   }
 };
 
@@ -52,11 +52,11 @@ const updateTASK = async (req, res) => {
     .getDb()
     .db()
     .collection('task')
-    .replaceOne(query, vhs);
+    .replaceOne(query, task);
   if (response.modifiedCount > 0) {
     res.status(204).send();
   } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the vhs.');
+    res.status(500).json(response.error || 'Some error occurred while updating the task.');
   }
 };
 

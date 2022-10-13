@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { requiresAuth } = require('express-openid-connect');
-const vhsController = require('../controllers/task');
+const taskController = require('../controllers/task');
 
 router.get('/', requiresAuth(), taskController.getAll);
 
