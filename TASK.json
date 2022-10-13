@@ -3,19 +3,16 @@
         "task": {
             "taskName":"Clean Kichen",
             "description":"Mop floor, do dishes, clean counter",
-            "length":"PG",
             "reward": 3.00
         },
         "task": {
             "taskName":"Clean Livingroom",
             "description":"Pick up toys, dust, sweep",
-            "length":"PG",
             "reward": 2.00
         },
         "task": {
             "taskName":"Clean Bathroom",
             "description":"Sanitize sink, clean toilet, change toilet papper",
-            "length":"PG",
             "reward": 2.50
         }
 }
