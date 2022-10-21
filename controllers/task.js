@@ -1,7 +1,7 @@
 const mongodb = require('../db/connect');
 
 const getAll = async (req, res) => {
-  const result = await mongodb.getDb().db().collection('task').find();
+  const result = await mongodb.getDb().db("Tasks").collection('tasks').find();
   if (result != null) {
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
@@ -15,7 +15,7 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
   const taskName = req.params.id;
   const query = { taskName: taskName};
-  const result = await mongodb.getDb().db().collection('task').find(query);
+  const result = await mongodb.getDb().db("Tasks").collection('tasks').find(query);
   if (result != null) {
     result.toArray().then((lists) => {
       res.setHeader('Content-Type', 'application/json');
@@ -32,7 +32,7 @@ const createTASK = async (req, res) => {
     discription: req.body.discription,
     reward: req.body.reward
   };
-  const response = await mongodb.getDb().db().collection('task').insertOne(task);
+  const response = await mongodb.getDb().db("Tasks").collection('tasks').insertOne(task);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -50,8 +50,8 @@ const updateTASK = async (req, res) => {
   };
   const response = await mongodb
     .getDb()
-    .db()
-    .collection('task')
+    .db("Tasks")
+    .collection('tasks')
     .replaceOne(query, task);
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -63,7 +63,7 @@ const updateTASK = async (req, res) => {
 const deleteTASK = async (req, res) => {
   const taskName = req.params.id;
   const query = { taskName: taskName};
-  const response = await mongodb.getDb().db().collection('task').remove(query, true);
+  const response = await mongodb.getDb().db("Tasks").collection('tasks').remove(query, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();

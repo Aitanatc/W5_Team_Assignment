@@ -1,18 +1,18 @@
 {
     
-        "task": {
-            "taskName":"Clean Kichen",
-            "discription":"Mop floor, do dishes, clean counter",
-            "reward": 3.00
-        },
-        "task": {
-            "taskName":"Clean Livingroom",
-            "discription":"Pick up toys, dust, sweep",
-            "reward": 2.00
-        },
-        "task": {
-            "taskName":"Clean Bathroom",
-            "discription":"Sanitize sink, clean toilet, change toilet papper",
-            "reward": 2.50
-        }
+    "task": {
+        "taskName":"Clean Kitchen",
+        "discription":"Mop floor, do dishes, clean counter",
+        "reward": 3.00
+    },
+    "task": {
+        "taskName":"Clean Livingroom",
+        "discription":"Pick up toys, dust, sweep",
+        "reward": 2.00
+    },
+    "task": {
+        "taskName":"Clean Bathroom",
+        "discription":"Sanitize sink, clean toilet, change toilet papper",
+        "reward": 2.50
+    }
 }
