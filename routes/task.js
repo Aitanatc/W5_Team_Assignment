@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// const { requiresAuth } = require('express-openid-connect');
+const { requiresAuth } = require('express-openid-connect');
 
 const taskController = require('../controllers/task');
 //task controller is defined up here ^^
