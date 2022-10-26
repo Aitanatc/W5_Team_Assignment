@@ -1,11 +1,10 @@
 const express = require('express');
-const path = require('path');
-
 const bodyParser = require('body-parser');
 
 
 const mongodb = require('./db/connect');
 const { auth } = require('express-openid-connect');
+
 
 const port = process.env.PORT || 3000;
 const app = express();
