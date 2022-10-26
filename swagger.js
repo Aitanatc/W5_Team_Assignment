@@ -5,7 +5,7 @@ const doc = {
     title: 'W5_Team_Assignment',
     description: 'CSE Project',
   },
-  host: 'https://tastsmanager.onrender.com/',
+  host: 'tastsmanager.onrender.com/',
 
   schemes: ['https'],
   schemes : ['http'],
