@@ -1,18 +1,48 @@
 {
     
-    "task": {
-        "taskName":"Clean Kitchen",
-        "discription":"Mop floor, do dishes, clean counter",
-        "reward": 3.00
+    "task1": {
+        "taskName":"Call Lead 1",
+        "discription":"Dr. Schmit intro call- set a meeting.",
+        "reward": 1.0,
+        "time": "14h00",
+        "company": "Dental arts",
+        "mobile" : "785-457-6244",
+        "background":"He was interested in our services last year but lost contact."
     },
-    "task": {
-        "taskName":"Clean Livingroom",
-        "discription":"Pick up toys, dust, sweep",
-        "reward": 2.00
+    "task2": {
+        "taskName":"Reply emails",
+        "discription":"Set meetings, register in the portal",
+        "reward": 2.0,
+        "time": "15h00",
+        "company": "all",
+        "mobile" : "----",
+        "background":"----."
     },
-    "task": {
-        "taskName":"Clean Bathroom",
-        "discription":"Sanitize sink, clean toilet, change toilet papper",
-        "reward": 2.50
+    "task3": {
+        "taskName":"Meeting",
+        "discription":"Intro meeting, explain and offer choices for client.",
+        "reward": 2.50,
+        "time": "16h00",
+        "company": "Dental arts",
+        "mobile" : "785-457-6244",
+        "background":"3rd meeting of the month."
+    },
+    "task4": {
+        "taskName":"Meeting",
+        "discription":"Follow up meeting.",
+        "reward": 2.50,
+        "time": "16h30",
+        "company": "Dental Group",
+        "mobile" : "785-444-7777 - via zoom",
+        "background":"Read draft contract."
+    },
+    "task5": {
+        "taskName":"Clean Desk",
+        "discription":"End of the day. Leave workspace ready for tomorrow.",
+        "reward": 2.0,
+        "time": "17h00",
+        "company": "---",
+        "mobile" : "---",
+        "background":"----"
     }
 }

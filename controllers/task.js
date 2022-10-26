@@ -31,7 +31,12 @@ const createTASK = async (req, res) => {
   const task = {
     taskName: req.body.taskName,
     discription: req.body.discription,
-    reward: req.body.reward
+    reward: req.body.reward,
+    time: req.body.time,
+    company: req.body.company,
+    mobile: req.body.mobile,
+    background: req.body.background
+
   };
   const response = await mongodb.getDb().db("Tasks").collection('tasks').insertOne(task);
   if (response.acknowledged) {
@@ -47,7 +52,11 @@ const updateTASK = async (req, res) => {
   const task = {
     taskName: req.body.taskName,
     discription: req.body.discription,
-    reward: req.body.reward
+    reward: req.body.reward,
+    time: req.body.time,
+    company: req.body.company,
+    mobile: req.body.mobile,
+    background: req.body.background
   };
   const response = await mongodb
     .getDb()

@@ -62,6 +62,18 @@
                 },
                 "reward": {
                   "example": "any"
+                },
+                "time": {
+                  "example": "any"
+                },
+                "company": {
+                  "example": "any"
+                },
+                "mobile": {
+                  "example": "any"
+                },
+                "background": {
+                  "example": "any"
                 }
               }
             }
@@ -122,6 +134,18 @@
                   "example": "any"
                 },
                 "reward": {
+                  "example": "any"
+                },
+                "time": {
+                  "example": "any"
+                },
+                "company": {
+                  "example": "any"
+                },
+                "mobile": {
+                  "example": "any"
+                },
+                "background": {
                   "example": "any"
                 }
               }
