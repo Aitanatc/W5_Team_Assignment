@@ -20,7 +20,9 @@ router.use('/auth', (req, res) => {
 
 router.use('/auth-callback', (req, res) => {
     res.redirect(
-        "https://tastsmanager.onrender.com/api-docs/",
+        // "https://tastsmanager.onrender.com/api-docs/",
+        "http://localhost:3000/api-docs",
+
     );
      
   })

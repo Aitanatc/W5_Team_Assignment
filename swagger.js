@@ -7,7 +7,7 @@ const doc = {
   },
   host: 'localhost:3000',
 
-  schemes: ['https'],
+  // schemes: ['https'],
   schemes : ['http'],
 };
 
