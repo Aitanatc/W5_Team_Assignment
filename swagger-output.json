@@ -1,185 +1,166 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "W5_Team_Assignment",
-    "description": "CSE Project",
-    "version": "1.0.0"
+      "discription": "This is an api server for a portfolio builder website.\n",
+      "version": "1.0.0",
+      "title": "Portfolio Builder",
+      "contact": {
+          "email": "testuser@test.com"
+      }
   },
-  "host": "tastsmanager.onrender.com",
-  "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  },
+  "schemes": ["https"],
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
-      }
-    },
-    "/task": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "taskName": {
-                  "example": "any"
-                },
-                "discription": {
-                  "example": "any"
-                },
-                "reward": {
-                  "example": "any"
-                },
-                "time": {
-                  "example": "any"
-                },
-                "company": {
-                  "example": "any"
-                },
-                "mobile": {
-                  "example": "any"
-                },
-                "background": {
-                  "example": "any"
-                }
+      "/task": {
+          "get": {
+              "tags": ["task"],
+              "summary": "Get all task data",
+              "operationId": "getAll",
+              "produces": ["application/json"],
+              "responses": {
+                  "200": {
+                      "discription": "successful operation"
+                  },
+                  "404": {
+                      "discription": "Error occurred"
+                  }
               }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
           },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/task/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "taskName": {
-                  "example": "any"
-                },
-                "discription": {
-                  "example": "any"
-                },
-                "reward": {
-                  "example": "any"
-                },
-                "time": {
-                  "example": "any"
-                },
-                "company": {
-                  "example": "any"
-                },
-                "mobile": {
-                  "example": "any"
-                },
-                "background": {
-                  "example": "any"
-                }
+          "post": {
+              "tags": ["task"],
+              "summary": "Create new task",
+              "discription": "This is for when a task is created.",
+              "operationId": "createTASK",
+              "produces": ["application/json"],
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "body",
+                      "discription": "Created task object",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/task"
+                      }
+                  }
+              ],
+              "responses": {
+                  "201": {
+                      "discription": "successfully created task"
+                  },
+                  "400": {
+                      "discription": "Invalid"
+                  }
               }
-            }
           }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
       },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
+      "/task/{taskName}": {
+          "get": {
+              "tags": ["task"],
+              "summary": "Get task by name",
+              "operationId": "getSingle",
+              "produces": ["application/json"],
+              "parameters": [
+                  {
+                      "name": "taskName",
+                      "in": "path",
+                      "discription": "The title that needs to be fetched.",
+                      "required": true,
+                      "type": "string"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "discription": "successful operation"
+                  },
+                  "400": {
+                      "discription": "Invalid Id supplied"
+                  },
+                  "404": {
+                      "discription": "Id not found"
+                  }
+              }
           },
-          "500": {
-            "description": "Internal Server Error"
+          "put": {
+              "tags": ["task"],
+              "summary": "Update task",
+              "discription": "This is for when a task is updated.",
+              "operationId": "updateTASK",
+              "produces": ["application/json"],
+              "parameters": [
+                  {
+                      "name": "taskName",
+                      "in": "path",
+                      "discription": "The video that needs to be updated.",
+                      "required": true,
+                      "type": "string"
+                  },
+                  {
+                      "in": "body",
+                      "name": "body",
+                      "discription": "Updated task object",
+                      "required": true,
+                      "schema": {
+                          "$ref": "#/definitions/task"
+                      }
+                  }
+              ],
+              "responses": {
+                  "201": {
+                      "discription": "successfully updated task"
+                  },
+                  "400": {
+                      "discription": "Invalid"
+                  }
+              }
+          },
+          "delete": {
+              "tags": ["task"],
+              "summary": "Remove task by name",
+              "operationId": "deleteTASK",
+              "produces": ["application/json"],
+              "parameters": [
+                  {
+                      "name": "taskName",
+                      "in": "path",
+                      "discription": "The name that needs to be removed.",
+                      "required": true,
+                      "type": "string"
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "discription": "successful operation"
+                  },
+                  "400": {
+                      "discription": "Invalid Id supplied"
+                  },
+                  "404": {
+                      "discription": "Id not found"
+                  }
+              }
           }
-        }
       }
-    }
+  },
+  "definitions": {
+      "task": {
+          "type": "object",
+          "required": ["taskName",
+              "discription",
+              "reward"],
+          "properties": {
+              "taskName": {
+                  "type": "string"
+              },
+              "discription":{
+                  "type": "string"
+              },
+              "reward":{
+                  "type": "number"
+              }
+          }
+      }
   }
 }
